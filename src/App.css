@@ -1,5 +1,8 @@
+* {
+  box-sizing: border-box;
+}
+
 #root {
-  max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
@@ -39,4 +42,33 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.border-blue {
+  border: 1px solid blue;
+  padding: 1em;
+  margin: 1em;
+}
+.border-green {
+  border: 1px solid green;
+  padding: 1em;
+  margin: 1em;
+}
+.border-white {
+  border: 1px solid white;
+  padding: 1em;
+  margin: 1em;
+}
+
+.flexbox-row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  margin: auto;
+}
+
+main {
+  width: 100%;
 }
