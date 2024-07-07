@@ -12,26 +12,39 @@ export default function Parent() {
 	});
 	return (
 		<div>
-			<h1>Parent Render Count: {refRender.current}</h1>
-			<button
-				type="button"
-				onClick={() => {
-					setCount((state) => state + 1);
-				}}
-			>
-				Parent Counter: {count}{" "}
-			</button>
-			<Child />
-			<Child setParentCount={setParentCount} parentCount={parentCount} />
-			<Child ref={refChild} />
-			<button
-				type="button"
-				onClick={() => {
-					refChild.current.setCount((state) => state + 1);
-				}}
-			>
-				Forwarded Method
-			</button>
+			<h2>Forward-Method Lab</h2>
+			<div className="border-blue">
+				<h3>Parent Render Count: {refRender.current}</h3>
+				<div className="flexbox-row">
+					<div className="border-white">
+						<div>Parent Counter: {count}</div>
+						<button
+							type="button"
+							onClick={() => {
+								setCount((state) => state + 1);
+							}}
+						>
+							Add One
+						</button>
+					</div>
+					<Child />
+					<Child
+						setParentCount={setParentCount}
+						parentCount={parentCount}
+					/>
+					<div>
+						<Child ref={refChild} />
+						<button
+							type="button"
+							onClick={() => {
+								refChild.current.setCount((state) => state + 1);
+							}}
+						>
+							Add One Forwarded to the Parent
+						</button>
+					</div>
+				</div>
+			</div>
 		</div>
 	);
 }

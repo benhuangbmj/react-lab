@@ -5,8 +5,18 @@ const Child = forwardRef(function Child({ parentCount, setParentCount }, ref) {
 		setCount,
 	}));
 	return (
-		<div>
+		<div className="border-green">
+			<div>
+				Child Counter
+				{setParentCount
+					? " From the Parent"
+					: ref
+						? " Forwarded to the Parent"
+						: " in the Child"}
+				: {parentCount ? parentCount : count}
+			</div>
 			<button
+				style={{ visibility: ref ? "hidden" : "visible" }}
 				type="button"
 				disabled={ref != null}
 				onClick={() => {
@@ -17,13 +27,8 @@ const Child = forwardRef(function Child({ parentCount, setParentCount }, ref) {
 					}
 				}}
 			>
-				Child Counter
-				{setParentCount
-					? " From the Parent"
-					: ref
-						? " Forwarded to the Parent"
-						: ""}
-				: {parentCount ? parentCount : count}{" "}
+				Add One
+				{setParentCount ? " From the Parent" : ""}
 			</button>
 		</div>
 	);
