@@ -63,9 +63,7 @@
 .flexbox-row {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
   justify-content: space-between;
-  align-items: start;
   margin: auto;
 }
 
