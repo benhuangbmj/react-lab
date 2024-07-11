@@ -34,7 +34,7 @@ function App() {
 
   return (
     <main>
-      <Navbar expand="false" sticky="top">
+      <Navbar expand={false} sticky="top">
         <Nav className="flexbox-row border-black" style={{ width: "100%" }}>
           <Nav
             className="flexbox-row"
@@ -44,11 +44,16 @@ function App() {
             }}
           >
             <Navbar.Toggle />
-            <Navbar.Collapse style={{ width: 0 }}>
-              {routes.map((route) => (
-                <Nav.Item key={route}>{route}</Nav.Item>
-              ))}
-            </Navbar.Collapse>
+            <Navbar.Offcanvas placement="start">
+              <Offcanvas.Header closeButton>
+                <Offcanvas.Title>Tile</Offcanvas.Title>
+              </Offcanvas.Header>
+              <Offcanvas.Body>
+                {routes.map((route) => (
+                  <Nav.Item key={route}>{route}</Nav.Item>
+                ))}
+              </Offcanvas.Body>
+            </Navbar.Offcanvas>
           </Nav>
           <Nav>
             <Button>
