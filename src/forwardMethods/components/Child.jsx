@@ -1,4 +1,4 @@
-import { forwardRef, useImperativeHandle, useState, useEffect } from "react";
+import { forwardRef, useImperativeHandle, useState } from "react";
 const Child = forwardRef(function Child({ parentCount, setParentCount }, ref) {
 	const [count, setCount] = useState(0);
 	useImperativeHandle(ref, () => ({

@@ -40,3 +40,11 @@
   margin: auto;
   width: fit-content;
 }
+
+main {
+  text-align: center;
+}
+
+button {
+  margin: 0.25em;
+}
