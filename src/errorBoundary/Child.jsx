@@ -2,15 +2,12 @@ import React from "react";
 import { useErrorBoundary } from "react-error-boundary";
 export default function Child() {
 	const { showBoundary } = useErrorBoundary();
+	const [error, setError] = React.useState(false);
 	React.useEffect(() => {
-		(async () => {
-			try {
-				throw "side effect error";
-			} catch (err) {
-				console.error(err);
-			}
-		})();
-	}, []);
+		if (error) {
+			throw "Side Effect Error";
+		}
+	}, [error]);
 	return (
 		<>
 			<h1>Child of ErrorBoundary</h1>
@@ -37,6 +34,14 @@ export default function Child() {
 				}}
 			>
 				Throw Another Error
+			</button>
+			<button
+				type="button"
+				onClick={() => {
+					setError(true);
+				}}
+			>
+				Side Effect Error
 			</button>
 		</>
 	);
