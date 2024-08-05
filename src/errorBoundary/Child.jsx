@@ -5,7 +5,7 @@ export default function Child() {
 	const [error, setError] = React.useState(false);
 	React.useEffect(() => {
 		if (error) {
-			throw "Side Effect Error";
+			throw Error("Side Effect Error");
 		}
 	}, [error]);
 	return (
@@ -15,7 +15,7 @@ export default function Child() {
 				type="button"
 				onClick={() => {
 					try {
-						throw "Error";
+						throw Error("Error");
 					} catch (err) {
 						showBoundary(err);
 					}
