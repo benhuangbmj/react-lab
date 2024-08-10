@@ -29,7 +29,7 @@ export default function Child() {
 					try {
 						throw "Another Error";
 					} catch (err) {
-						console.error(err);
+						showBoundary(err);
 					}
 				}}
 			>
